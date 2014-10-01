@@ -1,0 +1,5 @@
+#! /bin/sh
+
+umask 077
+mkdir -p ~/todo
+echo "$*" >> "$HOME/todo/`date +"%F"`"

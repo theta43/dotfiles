@@ -1,0 +1,19 @@
+[user]
+	name = James Smith
+	email = james@theta.pw
+	signingkey = james@theta.pw
+[diff]
+	tool = vimdiff
+	algorithm = minimal
+[core]
+	editor = vim
+	pager = less
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab
+[color]
+	ui = true
+[merge]
+	tool = vimdiff
+[pack]
+	threads = 0
+[push]
+	default = simple

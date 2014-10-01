@@ -1,0 +1,23 @@
+HISTFILE=~/.history
+typeset -U path
+path=( ~/bin /usr/games $path )
+
+umask 077
+export FIGNORE=.o:.\~
+export GCC_COLORS
+
+setopt HIST_IGNORE_DUPS
+setopt completealiases
+setopt appendhistory autocd extendedglob notify
+unsetopt beep
+bindkey -v
+
+autoload -U compinit promptinit
+compinit
+promptinit
+prompt walters
+
+[[ -f ~/.zshaliases ]] && . ~/.zshaliases
+
+# Wise words from a cow
+fortune -s

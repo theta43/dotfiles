@@ -1,0 +1,28 @@
+#! /usr/bin/env bash
+
+GAME_LOCATION=${GAME_LOCATION:-$HOME/media/games}
+
+## For Torchlight
+export SDL_VIDEO_X11_XINERAMA=0
+export SDL_VIDEO_X11_XRANDR=0
+export JAVA_EXEC=`which java`
+
+GAME=
+BIN=
+FLAGS=
+
+case $1 in
+df)	GAME="df_linux"		BIN="df" ;;
+eu)	GAME="EufloriaHD"	BIN="EufloriaHD.bin.x86_64" ;;
+ftl)	GAME="FTL"		BIN="FTL" ;;
+ksp)	GAME="KSP_linux"	BIN="KSP.x86_64" ;;
+splice) GAME="Splice"		BIN="Splice.x86_64" ;;
+sudoku)	exec ksudoku ;;
+uplink)	GAME="uplink"	FLAGS="-graphics_fullscreen" BIN="uplink.bin.x86" ;;
+*)	echo "Game not found \"$1\"" && exit 1 ;;
+esac
+
+[[ ! -d $GAME_LOCATION/$GAME ]] && exit 1
+
+cd $GAME_LOCATION/$GAME
+exec "`pwd`/$BIN" $FLAGS &> $GAME_LOCATION/$GAME.log

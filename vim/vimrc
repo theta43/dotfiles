@@ -1,0 +1,27 @@
+if has("autocmd")
+    filetype on
+    filetype indent on
+    filetype plugin on
+endif
+ 
+syntax enable
+
+if has('gui_running')
+	set background=light
+else
+	set background=dark
+endif
+
+set nocompatible
+set backspace=indent,eol,start
+set history=50
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set textwidth=79
+set tabstop=4
+set shiftwidth=4
+set showmatch
+set ruler
+set showcmd
+set number
+
+colorscheme jellybeans

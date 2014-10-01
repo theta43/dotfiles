@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+## Set wallpaper to last
+eval $(cat ~/.config/fehbg)
+
+[[ -f ${HOME}/.xsession]] && . ${HOME}/.xsession
+
+while true; do
+	xsetroot -name \
+		"`iw dev wlp8s0 link|grep SSID|cut -d: -f2` |`mpc|grep -v volume|head -n1` |`acpi|cut -d, -f2` |`date "+%a %d/%m/%Y %H:%M"`"
+	sleep 3
+done &
+
+exec dwm

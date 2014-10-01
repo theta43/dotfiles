@@ -1,0 +1,18 @@
+VisualHostKey yes
+HashKnownHosts yes
+
+## Prefer strong ciphers, key exchange, and authentication
+Ciphers "aes256-gcm@openssh.com,aes256-ctr,aes256-cbc"
+KexAlgorithms "diffie-hellman-group-exchange-sha256,ecdh-sha2-nistp521,ecdh-sha2-nistp256"
+MACs "hmac-sha2-512-etm@openssh.com,hmac-sha2-512"
+
+## Local server
+Host srv
+HostName zeus
+User jsmith
+Port 22
+
+Host vps
+HostName theta.pw
+User admin
+Port 243
