@@ -5,4 +5,5 @@ tar cJf - $HOME/{files,prj,todo} | gpg2 --encrypt - \
 	> /tmp/backup-${DATE}.tar.xz.gpg
 
 # backup to local server
-rsync -avz /tmp/backup-${DATE}.tar.xz.gpg srv:/media/backups
+scp /tmp/backup-${DATE}.tar.xz.gpg srv:/media/backups
+shred -z /tmp/backup-${DATE}.tar.xz.gpg
